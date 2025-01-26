@@ -21,18 +21,22 @@ public class Todo3 {
 			int menu = Integer.parseInt(scn.nextLine());
 			switch (menu) {
 			case 1:
-				System.out.println("목록입니다.");
-				System.out.println("==================================");
-				for (int i = 0; i < friend.length; i++) {
-					for (int j = 0; j < friend[i].length; j++) {
-							if () {
-								System.out.println("==================================");
-							}else {
-								break;
-						}
-					}
-				}
-				break;
+
+//				System.out.println("목록입니다.");
+//				System.out.println("==================================");
+//				for (int i = 0; i < friend.length; i++) {
+//					for (int j = 0; j < friend[i].length; j++) {
+//						for (int e = 0; e < friend[i][j].length; e++) {
+//							if (friend[i] != null && friend[i][j] != null && friend[i][j][e] != null) {
+//								System.out.println(friend[i] + friend[i][j] + friend[i][j][e]);
+//								System.out.println("==================================");
+//							}else {
+//								break;
+//							}
+//						}
+//					}
+//				}
+//				break;
 			case 2:
 				System.out.println("등록화면 입니다. 이름, 전화번호, 성별을 입력해주세요.");
 				System.out.println("ex)홍길동,010-2222-2321,남");
