@@ -25,13 +25,10 @@ public class Todo3 {
 				System.out.println("==================================");
 				for (int i = 0; i < friend.length; i++) {
 					for (int j = 0; j < friend[i].length; j++) {
-						for (int e = 0; e < friend[i][j].length; e++) {
-							if (friend[i] != null && friend[i][j] != null && friend[i][j][e] != null) {
-								System.out.println(friend[i] + friend[i][j] + friend[i][j][e]);
+							if () {
 								System.out.println("==================================");
 							}else {
 								break;
-							}
 						}
 					}
 				}
