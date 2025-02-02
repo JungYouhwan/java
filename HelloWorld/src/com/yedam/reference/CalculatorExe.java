@@ -1,11 +1,17 @@
 package com.yedam.reference;
 
+import java.util.Scanner;
+
 // Calculator
 public class CalculatorExe {
 	public static void main(String[] args) {
+		
+		Scanner scn = new Scanner(System.in);
+		System.out.printf("보고싶은 월을 입력하세요");
+		int month = Integer.parseInt(scn.nextLine());
 		Calculator cal = new Calculator();
 		//cal.showCalendar(2025, 05); 5월달 달력 출력 
-		cal.showCalendar();
+		cal.showCalendar(month);
 		
 //		Book[] bookStore = new Book[5];
 //		bookStore[0] = new Book("이것이자바다", "신용권", "한빛미디어", 30000);

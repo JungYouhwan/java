@@ -1,22 +1,34 @@
 package com.yedam.reference;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 // CalculatorExe
 public class Calculator {
 
-	public void showCalendar() {
+	public void showCalendar(int month) {
+		Calendar cal = Calendar.getInstance();
+		SimpleDateFormat date = new SimpleDateFormat("yyyy-MM-dd E");
+//		LocalDate date = LocalDate.of("year, month, 1");
+		System.out.println("오늘 날짜는 " + date.format(cal.getTime()) + "요일 입니다."); // 오늘날짜
+		System.out.println("보고싶은 날은 " + month + "월 입니다.");
+		
+		int spaces = cal.get(Calendar.DAY_OF_WEEK);
+		int lastDay = cal.getActualMaximum(Calendar.DAY_OF_MONTH);
+		
 		String[] days = { "Sun", "Mon", "Tue", "Wed", "Thr", "Fri", "Sat" };
 		for (String day : days) {
 			System.out.printf("%4s", day);
 		}
 		System.out.println("\n-----------------------------");
-		int spaces = 3;
-		int lastDay = 31 + 1;
-		// 공백, 말일 계산.
-		
+		// 공백, 말일 계산. 공백을
 		// 배열에 값 채우기.
-		for (int i=1; i < lastDay; i++) {
-			System.out.printf("%4s", i);
-			if (i % 7 == 0) {
+		for (int j = 0; j < spaces; j++) {
+			System.out.printf("    "); // 공백 그리기
+		}
+		for (int i = 1; i < lastDay; i++) {
+			System.out.printf("%4s", i); // 일 그리기
+			if ((i+spaces) % 7 == 0) {
 				System.out.printf("\n");
 			}
 		}

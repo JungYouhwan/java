@@ -80,7 +80,7 @@ public class Reference3 {
 		// 이름, 연락처, 성별 => 100개 공간.
 //		Scanner scn = new Scanner(System.in);
 
-		System.out.println("몇명을 입력하실 건가욥?>");
+		System.out.println("몇명을 입력하실 건가요?>");
 		int count = Integer.parseInt(scn.nextLine());
 		
 		for (int i = 0; i < friend.length; i++) {
