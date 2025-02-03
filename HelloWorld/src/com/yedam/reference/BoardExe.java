@@ -50,13 +50,13 @@ public class BoardExe {
 			int firstIdx = page * 5; // page:2 =>5
 			int lastIdx = firstIdx - 5; // page:2 =>9
 			int Idx = 0;
-			
+
 			System.out.println("번호|   제목   |     내용     |   Id   |    날짜");
 			System.out.println("----------------------------------------------");
-			for(int i = 0; i < boardRepo.length; i++) {
-				if(boardRepo[i] != null) {
+			for (int i = 0; i < boardRepo.length; i++) {
+				if (boardRepo[i] != null) {
 					Idx++;
-					if(Idx<=firstIdx&& Idx>lastIdx) {
+					if (Idx <= firstIdx && Idx > lastIdx) {
 						System.out.println(Idx + ".  " + boardRepo[i].showBoard());
 					}
 				}
@@ -103,6 +103,8 @@ public class BoardExe {
 
 	public static void addBoard() {
 		// 글 등록 메서드.
+		// 제목: 5글자 이상 ~ 15글자 이하. 콘솔출력("등록불가합니다");
+		// 똑같은 글제목이 있으면 콘솔출력("이미 있는 제목입니다.");
 		System.out.print("제목을 입력>>");
 		String title = scn.nextLine();
 		System.out.print("내용을 입력>>");
@@ -114,12 +116,20 @@ public class BoardExe {
 //		String writeDate = scn.nextLine();
 		// 배열의 빈공간에 입력한 데이터를 입력.
 		// 작성시의 시스템날짜로 변경
-		for (int i = 0; i < boardRepo.length; i++) {
-			if (boardRepo[i] == null) {
-				boardRepo[i] = new Board(title, content, loginId, new Date());
-				System.out.println("등록완료.");
-				break; // 한건만 등록.
+		if (title.length() <= 15 && title.length() >= 5) {
+			for (int i = 0; i < boardRepo.length; i++) {
+				if (title.equals(boardRepo[i].getTitle())) {
+					System.out.println("이미 있는 제목입니다.");
+					break;
+				} else if (boardRepo[i] == null) {
+					boardRepo[i] = new Board(title, content, loginId, new Date());
+					System.out.println("등록완료.");
+					break; // 한건만 등록.
+				}
 			}
+		} else {
+			System.out.println("등록불가합니다.");
+			return;
 		}
 	}
 
@@ -141,7 +151,7 @@ public class BoardExe {
 		// MemberExe 클래스
 		// static 선언시 인스턴스 선언 안하고 클래스.메소드 해도 불러오기 가능.
 //		MemberExe exe = new MemberExe(); // 인스턴스 선언
-		
+
 		while (true) {
 			// id, password 일치하면 글목록기능 사용.
 			System.out.println("아이디 입력>>");
