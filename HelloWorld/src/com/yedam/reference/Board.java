@@ -1,4 +1,8 @@
 package com.yedam.reference;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /*
  * 복합형태의 데이터타입 클래스.
  * 
@@ -11,11 +15,11 @@ public class Board {
 	private String title;
 	private String content;
 	private String writer;
-	private String writeDate;
+	private Date writeDate;
 	
 	
 	// 생성자.
-	public Board(String title, String content, String writer, String writeDate) {
+	public Board(String title, String content, String writer, Date writeDate) {
 		this.title = title;
 		this.content = content;
 		this.writer = writer;
@@ -45,16 +49,17 @@ public class Board {
 	public void setWriter(String writer) {
 		this.writer = writer;
 	}
-	public String getWriteDate() {
+	public Date getWriteDate() {
 		return writeDate;
 	}
-	public void setWriteDate(String writeDate) {
+	public void setWriteDate(Date writeDate) {
 		this.writeDate = writeDate;
 	}
 	// 게시글
 	// showBoard()
 	public String showBoard() {
-		return title + " " + content + " " + writer + " " + writeDate;
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+		return title + " " + content + " " + writer + " " + sdf.format(writeDate);
 	}
 	
 }
