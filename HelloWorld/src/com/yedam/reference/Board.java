@@ -59,7 +59,7 @@ public class Board {
 	// showBoard()
 	public String showBoard() {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-		return title + " " + content + " " + writer + " " + sdf.format(writeDate);
+		return title + " | " + content + " | " + writer + " | " + sdf.format(writeDate);
 	}
 	
 }

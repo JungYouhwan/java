@@ -50,12 +50,14 @@ public class BoardExe {
 			int firstIdx = page * 5; // page:2 =>5
 			int lastIdx = firstIdx - 5; // page:2 =>9
 			int Idx = 0;
-			System.out.println();
+			
+			System.out.println("번호|   제목   |     내용     |   Id   |    날짜");
+			System.out.println("----------------------------------------------");
 			for(int i = 0; i < boardRepo.length; i++) {
 				if(boardRepo[i] != null) {
 					Idx++;
 					if(Idx<=firstIdx&& Idx>lastIdx) {
-						System.out.println(Idx + "    " + boardRepo[i].showBoard());
+						System.out.println(Idx + ".  " + boardRepo[i].showBoard());
 					}
 				}
 			}
@@ -137,15 +139,16 @@ public class BoardExe {
 
 	public static void main(String[] args) {
 		// MemberExe 클래스
-		MemberExe exe = new MemberExe();
+		// static 선언시 인스턴스 선언 안하고 클래스.메소드 해도 불러오기 가능.
+//		MemberExe exe = new MemberExe(); // 인스턴스 선언
+		
 		while (true) {
 			// id, password 일치하면 글목록기능 사용.
 			System.out.println("아이디 입력>>");
 			String id = scn.nextLine();
 			System.out.println("비밀번호 입력>>");
 			String pw = scn.nextLine();
-
-			String name = exe.login(id, pw);
+			String name = MemberExe.login(id, pw);
 			if (name != null) {
 				// 로그인 성공시 이름 출력.
 				System.out.println("로그인을 성공했습니다.");
@@ -185,7 +188,6 @@ public class BoardExe {
 			default: // 1, 2, 3, 9 외의 경우.
 				System.out.println("메뉴를 확인하세요.");
 			} // end of switch
-
 		} // end of while.
 		System.out.println("end of prog.");
 
