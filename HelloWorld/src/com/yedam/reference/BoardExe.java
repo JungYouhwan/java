@@ -12,6 +12,7 @@ public class BoardExe {
 	// 필드도 같이 불러오기위해서 static선언.
 	static Board[] boardRepo = new Board[100]; // 게시글을 등록하는 배열.
 	static Scanner scn = new Scanner(System.in);
+	static String loginId; // 로그인정보
 
 	public static void initData() {
 		// 배열의 샘플데이터.
@@ -19,17 +20,17 @@ public class BoardExe {
 		boardRepo[1] = new Board("게시글제목2", "내용입니다.2", "user01", "2025-01-29");
 		boardRepo[2] = new Board("게시글제목3", "내용입니다.3", "user01", "2025-01-30");
 		boardRepo[3] = new Board("게시글제목4", "내용입니다.4", "user01", "2025-01-30");
-		boardRepo[4] = new Board("게시글제목5", "내용입니다.5", "user01", "2025-01-30");
-
-		boardRepo[5] = new Board("게시글제목6", "내용입니다.6", "user02", "2025-01-30");
-		boardRepo[6] = new Board("게시글제목7", "내용입니다.7", "user02", "2025-01-30");
-		boardRepo[7] = new Board("게시글제목8", "내용입니다.8", "user02", "2025-01-30");
-		boardRepo[8] = new Board("게시글제목9", "내용입니다.9", "user02", "2025-01-30");
-		boardRepo[9] = new Board("게시글제목10", "내용입니다.10", "user02", "2025-01-30");
-
-		boardRepo[10] = new Board("게시글제목11", "내용입니다.11", "user03", "2025-01-30");
-		boardRepo[11] = new Board("게시글제목12", "내용입니다.12", "user03", "2025-01-30");
-		boardRepo[12] = new Board("게시글제목13", "내용입니다.13", "user03", "2025-01-30");
+//		boardRepo[4] = new Board("게시글제목5", "내용입니다.5", "user01", "2025-01-30");
+//
+//		boardRepo[5] = new Board("게시글제목6", "내용입니다.6", "user02", "2025-01-30");
+//		boardRepo[6] = new Board("게시글제목7", "내용입니다.7", "user02", "2025-01-30");
+//		boardRepo[7] = new Board("게시글제목8", "내용입니다.8", "user02", "2025-01-30");
+//		boardRepo[8] = new Board("게시글제목9", "내용입니다.9", "user02", "2025-01-30");
+//		boardRepo[9] = new Board("게시글제목10", "내용입니다.10", "user02", "2025-01-30");
+//
+//		boardRepo[10] = new Board("게시글제목11", "내용입니다.11", "user03", "2025-01-30");
+//		boardRepo[11] = new Board("게시글제목12", "내용입니다.12", "user03", "2025-01-30");
+//		boardRepo[12] = new Board("게시글제목13", "내용입니다.13", "user03", "2025-01-30");
 	}
 
 	public static void boardList() {
@@ -80,14 +81,15 @@ public class BoardExe {
 		String title = scn.nextLine();
 		System.out.print("내용을 입력>>");
 		String content = scn.nextLine();
-		System.out.print("아이디를 입력>>");
-		String writer = scn.nextLine();
+//		System.out.print("아이디를 입력>>");
+//		String writer = scn.nextLine();
+//		String name = login(id,pw);
 		System.out.print("날짜를 입력>>");
 		String writeDate = scn.nextLine();
 		// 배열의 빈공간에 입력한 데이터를 입력.
 		for (int i = 0; i < boardRepo.length; i++) {
 			if (boardRepo[i] == null) {
-				boardRepo[i] = new Board(title, content, writer, writeDate);
+				boardRepo[i] = new Board(title, content, loginId, writeDate);
 				System.out.println("등록완료.");
 				break; // 한건만 등록.
 			}
@@ -109,9 +111,27 @@ public class BoardExe {
 	}
 
 	public static void main(String[] args) {
+		// MemberExe 클래스
+		MemberExe exe = new MemberExe();
+		while (true) {
+			// id, password 일치하면 글목록기능 사용.
+			System.out.println("아이디 입력>>");
+			String id = scn.nextLine();
+			System.out.println("비밀번호 입력>>");
+			String pw = scn.nextLine();
+			
+			String name = exe.login(id,pw);
+			if (name != null) {
+				// 로그인 성공시 이름 출력.
+				System.out.println("로그인을 성공했습니다.");
+				System.out.println(name + "님 환영합니다.");
+				break; // while 반복종료.
+			} else {
+				System.out.println("아이디와 비밀번호를 확인하세요.");
+			}
+		} // 로그인 끝
 		boolean run = true;
 		initData(); // 초기데이터 생성.
-
 		while (run) {
 			System.out.println("1.글목록 2.글등록 3.삭제 9.종료");
 			System.out.println("--------------------------");
