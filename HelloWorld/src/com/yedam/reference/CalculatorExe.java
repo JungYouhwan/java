@@ -7,11 +7,11 @@ public class CalculatorExe {
 	public static void main(String[] args) {
 		
 		Scanner scn = new Scanner(System.in);
-		System.out.printf("보고싶은 월을 입력하세요");
-		int month = Integer.parseInt(scn.nextLine());
+//		System.out.printf("보고싶은 월을 입력하세요");
+//		int month = Integer.parseInt(scn.nextLine());
 		Calculator cal = new Calculator();
 		//cal.showCalendar(2025, 05); 5월달 달력 출력 
-		cal.showCalendar(month);
+		cal.showCalendar();
 		
 //		Book[] bookStore = new Book[5];
 //		bookStore[0] = new Book("이것이자바다", "신용권", "한빛미디어", 30000);
@@ -30,6 +30,7 @@ public class CalculatorExe {
 //		}
 //		
 //		String author2 = cal.getBookIn("혼자공부하는CSS", bookStore);
+		
 //		if (author2 != null) {
 //			System.out.println(author2);
 //		}else {
@@ -37,12 +38,15 @@ public class CalculatorExe {
 //		}
 //		
 //		boolean author3 = cal.getBookBoolean("자바스크립트기초");
+		
 //		if (author3 != false) {
 //			System.out.println(true);
 //		}else {
 //			System.out.println(false);
 //		}
+		
 //		Book author4 = cal.getBookLnfo("자바스크립트기초");
+		
 //		if (author4 != null) {
 //			System.out.println("ㅇㅇ");
 //		}else {

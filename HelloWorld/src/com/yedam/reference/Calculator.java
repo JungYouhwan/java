@@ -6,16 +6,27 @@ import java.util.Calendar;
 // CalculatorExe
 public class Calculator {
 
-	public void showCalendar(int month) {
+	public void showCalendar() {
 		Calendar cal = Calendar.getInstance();
 		SimpleDateFormat date = new SimpleDateFormat("yyyy-MM-dd E");
 //		LocalDate date = LocalDate.of("year, month, 1");
-		System.out.println("오늘 날짜는 " + date.format(cal.getTime()) + "요일 입니다."); // 오늘날짜
-		System.out.println("보고싶은 날은 " + month + "월 입니다.");
+//		System.out.println("보고싶은 날은 " + month + "월 입니다.");
+//		System.out.println("오늘 날짜는 " + date.format(cal.getTime()) + "요일 입니다."); // 오늘날짜
 		
-		int spaces = cal.get(Calendar.DAY_OF_WEEK);
-		int lastDay = cal.getActualMaximum(Calendar.DAY_OF_MONTH);
-		
+		int spaces = 6;
+//		int spaces = cal.get(Calendar.DAY_OF_WEEK);
+//		int lastDay = cal.getActualMaximum(Calendar.DAY_OF_MONTH);
+		int lastDay = 31;
+		// 배열에 공백과 값 추가.
+		String[] dateAry = new String[spaces + lastDay];
+		for(int i = 0; i < dateAry.length; i++) {
+			if (i < spaces) {
+				dateAry[i] = "";
+			} else {
+				dateAry[i] = "" + (i + 1 - spaces);
+			}
+		}
+		// 요일 출력.
 		String[] days = { "Sun", "Mon", "Tue", "Wed", "Thr", "Fri", "Sat" };
 		for (String day : days) {
 			System.out.printf("%4s", day);
@@ -24,14 +35,20 @@ public class Calculator {
 		// 공백, 말일 계산. 공백을
 		// 배열에 값 채우기.
 		for (int j = 0; j < spaces; j++) {
-			System.out.printf("    "); // 공백 그리기
+			System.out.println(dateAry[j]);
 		}
 		for (int i = 1; i < lastDay; i++) {
-			System.out.printf("%4s", i); // 일 그리기
-			if ((i+spaces) % 7 == 0) {
-				System.out.printf("\n");
-			}
+			
 		}
+//		for (int j = 0; j < spaces; j++) {
+//			System.out.printf("    "); // 공백 그리기
+//		}
+//		for (int i = 1; i < lastDay; i++) {
+//			System.out.printf("%4s", i); // 일 그리기
+//			if ((i+spaces) % 7 == 0) {
+//				System.out.printf("\n");
+//			}
+//		}
 	}
 
 	// 매개값이 없으면 기본생성자.
