@@ -118,13 +118,14 @@ public class BoardExe {
 		// 작성시의 시스템날짜로 변경
 		if (title.length() <= 15 && title.length() >= 5) {
 			for (int i = 0; i < boardRepo.length; i++) {
-				if (title.equals(boardRepo[i].getTitle())) {
-					System.out.println("이미 있는 제목입니다.");
-					break;
-				} else if (boardRepo[i] == null) {
+				if (boardRepo[i] == null) {
 					boardRepo[i] = new Board(title, content, loginId, new Date());
 					System.out.println("등록완료.");
 					break; // 한건만 등록.
+				}
+				if (title.equals(boardRepo[i].getTitle())) {
+					System.out.println("이미 있는 제목입니다.");
+					break;
 				}
 			}
 		} else {

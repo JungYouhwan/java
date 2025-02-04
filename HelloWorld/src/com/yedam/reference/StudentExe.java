@@ -1,27 +1,34 @@
 package com.yedam.reference;
 
 import java.util.Scanner;
-
+/*
+ * main 담고있는 실행클래스.
+ */
 public class StudentExe {
 	public static void main(String[] args) {
-		Student[] students = new Student[5];
 		
+		Student[] students = new Student[5];
 		Student std1 = new Student("홍길동",80,80);
 		
 //		std1.studentNm = "홍길동";
 //		std1.enScore = 80;
 //		std1.mathScore = 50;
 //		
-		Student std2 = new Student("김민수",50);
+		// 상수선언 final.
+		final Student std2 = new Student("김민수",50);
 //		std2.studentNm = "김민수";
 //		std2.enScore = 50;
 		std1.mathScore = 88;
+		std1.gender = Gender.MEN;
+		std2.gender = Gender.MEN;
+		
 
 		Student std3 = new Student("홍정학");
 //		std3.studentNm = "홍정학";
 		std3.enScore = 80;
 		std3.mathScore = 90;
-		
+		std3.gender = Gender.WOMEN;
+				
 		students[0] = std1;
 		students[1] = std2;
 		students[2] = std3;
@@ -46,7 +53,10 @@ public class StudentExe {
 		String studName = scn.nextLine();
 		for (int i = 0; i < students.length; i++) {
 			
-			if (students[i] !=null && studName.equals(students[i].studentNm)) {
+			if (students[i] !=null 
+					//&& studName.equals(students[i].studentNm)) {
+					&& students[i].gender == Gender.MEN) {
+				students[i].printInfo();
 				System.out.printf("%-3s의 평균성적은 %.2f 입니다.",students[i].studentNm,students[i].getAvg(students[i]));
 			}
 		}
