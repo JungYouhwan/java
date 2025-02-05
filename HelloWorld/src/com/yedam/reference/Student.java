@@ -23,14 +23,14 @@ public class Student {
 
 	}
 
-	Student(String studentNm, int enScore, int mathScore) {
+	public Student(String studentNm, int enScore, int mathScore) {
 		this.studentNm = studentNm;
 		this.enScore = enScore;
 		this.mathScore = mathScore;
 	}
 
 	// 메소드 (기능)
-	void printInfo() { // 클래스내부의 정보 출력
+	public void printInfo() { // 클래스내부의 정보 출력
 		System.out.printf("이름은 %s, 영어점수는 %d, 수학점수는 %d \n", studentNm, enScore, mathScore);
 	}
 
