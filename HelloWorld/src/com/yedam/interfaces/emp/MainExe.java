@@ -119,16 +119,16 @@ public class MainExe {
 				Employee emp = new Employee();
 				emp.setEmpName(name);
 				// 조회결과.
-				Employee[] result = dao.search(emp);
+//				Employee[] result = dao.search(emp);
 				// 출력.
 				System.out.println("사번     이름       연락처     급여     입사날짜");
 				System.out.println("------------------------------------------");
-				for (Employee empl : result) {
-					if (empl != null) {
-//						System.out.println(empl.getEmpName());
-						System.out.println(empl.empInfo());
-					}
-				}
+//				for (Employee empl : result) {
+//					if (empl != null) {
+////						System.out.println(empl.getEmpName());
+//						System.out.println(empl.empInfo());
+//					}
+//				}
 				break;
 			case 9:
 				System.out.println("종료합니다.");
