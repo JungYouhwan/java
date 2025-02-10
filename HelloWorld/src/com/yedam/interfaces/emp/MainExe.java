@@ -11,7 +11,9 @@ import java.util.Scanner;
  */
 public class MainExe {
 	static Scanner scn = new Scanner(System.in);
-	static EmpDAO dao = new EmpAryExe();
+	
+	static EmpDAO dao = new EmpDBExe();
+	
 	public static void main(String[] args) {
 		// 스캐너, run,
 		boolean run = true;

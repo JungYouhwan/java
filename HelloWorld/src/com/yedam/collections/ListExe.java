@@ -21,10 +21,10 @@ public class ListExe {
 		
 		strList.add(0,"Hello");
 		
-		System.out.println(strList);
+//		System.out.println(strList);
 		for(int i=0; i<strList.size(); i++) {
 			System.out.println(strList.get(i));
 		}
-		System.out.println(strList.contains("Hong")); // 특정값 포함 확인 true false
+//		System.out.println(strList.contains("Hong")); // 특정값 포함 확인 true false
 	}
 }
