@@ -65,6 +65,9 @@ public class EmpDBExe implements EmpDAO {
 	@Override
 	public List<Employee> search(Employee emp) {
 		List<Employee> empList = new ArrayList<>();
+		String qry = "select * from tbl_employees " //
+				+ "where emp_name = nvl('" + emp.getEmpName() + "' , emp_name) " //
+				+ "order by emp_no";
 		
 		try {
 			// Connect() 안에 DB정보를 넣어서 불러왔음.
